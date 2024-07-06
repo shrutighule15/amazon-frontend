@@ -1,0 +1,79 @@
+.summary-container {
+    position: absolute;
+    bottom: 20px;
+    right: 20px; /* Adjust right position as needed */
+    width: 300px;
+    background-color: #f3f3f3;
+    border: 1px solid #ddd;
+    padding: 20px;
+    box-shadow: 0 5px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.order-heading {
+    font-size: 24px;
+    padding-top: 5px;
+    padding-left: 50px;
+    padding-bottom: 5px;
+}
+
+.order-line {
+    margin-top: 10px;
+}
+
+.proceed-to {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    background-color: #ffd700;
+    border-radius: 8px;
+    height: 40px;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.proceed-to:hover {
+    background-color: #ffc107;
+}
+
+.order-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.item-count {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.item-total {
+    font-size: 18px;
+    color: #b12704;
+    font-weight: bold;
+}
+
+.total-heading {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.final-amount {
+    font-weight: bold;
+    font-size: 18px;
+    color: #b12704;
+}
