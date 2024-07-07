@@ -8,10 +8,10 @@ import { useNavigate } from 'react-router-dom';
 function Shoppingcart({ hideHeaderAndSubtotal }) {
   const [{ cart }, dispatch] = useStateValue();
   const [selectedItems, setSelectedItems] = useState([]);
-const navigate = useNavigate()
+  const navigate = useNavigate()
 
-   // Handle checkbox change
-   const handleCheckboxChange = (item) => {
+  // Handle checkbox change
+  const handleCheckboxChange = (item) => {
     setSelectedItems(prevSelectedItems => {
       if (prevSelectedItems.includes(item.id)) {
         return prevSelectedItems.filter(i => i !== item.id); // Remove item if already selected
@@ -58,7 +58,7 @@ const navigate = useNavigate()
       </div>
       {!hideHeaderAndSubtotal && (
         <div className="subtotal-container">
-          <Subtotal selectedItems={selectedItems}  />
+          <Subtotal selectedItems={selectedItems} />
         </div>
       )}
     </div>

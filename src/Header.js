@@ -28,7 +28,7 @@ function Header() {
       <input className='search-in' type='text' placeholder='Search' />
       <SearchIcon className='search-icon' />
     </div>
-    <Link to='/Loginpage'>
+    <Link to='/Login'>
   <div className='header-nav'>
     <span className='header-nav-one'>
     Hello, {user ? getFirstName(user.name) : 'Guest'}

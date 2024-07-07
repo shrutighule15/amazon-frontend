@@ -16,7 +16,6 @@ function Signup() {
     e.preventDefault();
     axios.post('http://localhost:8000/users/signup', { name, email, password })
       .then(result => {
-        console.log(result)
         Navigate('/login')
         setName('');
         setEmail('');
