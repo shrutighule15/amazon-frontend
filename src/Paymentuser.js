@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-const Payment = () => {
+function Paymentuser() {
   const handlePayment = async () => {
     try {
       const orderUrl = 'http://localhost:8000/api/payment/order';
@@ -25,12 +25,12 @@ const Payment = () => {
           // Handle success or other logic here
         },
         prefill: {
-          name: 'Shruti', 
+          name: 'Shruti',
           email: 'shruti15@gmail.com',
           contact: '9999999999'
         },
         notes: {
-          address: 'Mumbai' 
+          address: 'Mumbai'
         },
         theme: {
           color: '#3399cc'
@@ -52,4 +52,4 @@ const Payment = () => {
   );
 };
 
-export default Payment;
+export default Paymentuser;
