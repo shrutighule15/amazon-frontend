@@ -1,7 +1,7 @@
 export const initialState = {
   cart: [],
   user: null,
-  selectedItems: []
+  selectedItems: [],
 };
 
 export const getCartTotal = (cart) =>
@@ -9,15 +9,17 @@ export const getCartTotal = (cart) =>
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'ADD_TO_CART': {
-      const itemIndex = state.cart.findIndex((cartItem) => cartItem.id === action.item.id);
+    case "ADD_TO_CART": {
+      const itemIndex = state.cart.findIndex(
+        (cartItem) => cartItem.id === action.item.id
+      );
       let newCart = [...state.cart];
 
       if (itemIndex >= 0) {
         // Item already exists in cart, increase quantity
         newCart[itemIndex] = {
           ...newCart[itemIndex],
-          quantity: newCart[itemIndex].quantity + 1
+          quantity: newCart[itemIndex].quantity + 1,
         };
       } else {
         // Item does not exist in cart, add it with quantity 1
@@ -26,16 +28,16 @@ const reducer = (state = initialState, action) => {
 
       return {
         ...state,
-        cart: newCart
+        cart: newCart,
       };
     }
-    case 'SET_SELECTED_ITEMS': {
+    case "SET_SELECTED_ITEMS": {
       return {
         ...state,
-        selectedItems: action.items
-      }
+        selectedItems: action.items,
+      };
     }
-    case 'REMOVE_FROM_CART': {
+    case "REMOVE_FROM_CART": {
       const index = state.cart?.findIndex(
         (cartItem) => cartItem.id === action.id
       );
@@ -52,11 +54,11 @@ const reducer = (state = initialState, action) => {
         cart: newCart,
       };
     }
-    case 'SET_USER': {
+    case "SET_USER": {
       return {
         ...state,
         user: action.user,
-      }
+      };
     }
     default:
       return state;
