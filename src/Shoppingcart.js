@@ -10,11 +10,6 @@ function Shoppingcart({ hideHeaderAndSubtotal }) {
   const [selectedItems, setSelectedItems] = useState([]);
   const navigate = useNavigate()
 
-  const getItemQuantity = (item) => {
-    const foundItem = cart.find(cartItem => cartItem.id === item.id);
-    return foundItem ? foundItem.quantity : 1;
-  };
-
   // Handle checkbox change
   const handleCheckboxChange = (item) => {
     setSelectedItems(prevSelectedItems => {
@@ -32,7 +27,6 @@ function Shoppingcart({ hideHeaderAndSubtotal }) {
     });
     navigate('/checkout');
   };
-
   return (
     <div className="shoppingcart-container">
       <div className={`shoppingcart ${hideHeaderAndSubtotal ? 'hide-header' : ''}`}>
@@ -57,7 +51,6 @@ function Shoppingcart({ hideHeaderAndSubtotal }) {
                 title={item.title}
                 price={item.price}
                 rating={item.rating}
-                quantity={getItemQuantity(item)}
               />
             </div>
           ))}
