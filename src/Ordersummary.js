@@ -1,8 +1,9 @@
-import React from "react";
+import React from "react"; // Ensure import statements are at the top
 import "./Ordersummary.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+// Combined into a single Ordersummary component
 function Ordersummary({
   itemToShow,
   finalAmount,
@@ -66,6 +67,11 @@ function Ordersummary({
     }
   };
 
+  // Ensure only one handleProceedToPayment function
+  const handleProceedToPayment = () => {
+    navigate("/Paymentuser", { state: { finalAmount } });
+  };
+
   return (
     <div className="summary-container">
       <div className="summary">
@@ -81,11 +87,16 @@ function Ordersummary({
           <h3 className="total-heading">Order Total</h3>
           <span className="final-amount">₹ {finalAmount}</span>
         </div>
+
         <div>
           <button className="proceed-to" onClick={handlePayment}>
             Proceed to payment
           </button>
         </div>
+
+        <button className="proceed-to" onClick={handleProceedToPayment}>
+          Proceed to payment
+        </button>
       </div>
     </div>
   );

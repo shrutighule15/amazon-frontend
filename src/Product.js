@@ -11,7 +11,7 @@ function Product({ id, image, title, price, rating }) {
     dispatch({
       type: 'ADD_TO_CART',
       item: {
-        id: id, 
+        id: id,
         image: image,
         title: title,
         price: price,
@@ -22,7 +22,7 @@ function Product({ id, image, title, price, rating }) {
 
   return (
     <div className='Product'>
-      <img className='img-pro' src={image} alt='' />
+      <img className='img-pro' src={image} alt={title} />
       <div className='product-info'>
         <p>{title}</p>
         <p className='product-price'>
