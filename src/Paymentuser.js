@@ -1,12 +1,25 @@
 import React from 'react';
 import axios from 'axios';
 
+import { useLocation, useNavigate } from 'react-router-dom';
+
 function Paymentuser() {
+
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { finalAmount } = location.state || {};
+
+  if (!finalAmount) {
+    // Navigate back to checkout if finalAmount is not available
+    navigate('/checkout');
+    return null; // Prevent rendering the rest of the component
+  }
+
   const handlePayment = async () => {
     try {
       const orderUrl = 'http://localhost:8000/api/payment/order';
       const { data } = await axios.post(orderUrl, {
-        amount: 500, // Amount in rupees (replace with dynamic amount)
+        amount: finalAmount * 100, // Amount in rupees (replace with dynamic amount)
         currency: 'INR',
         receipt: 'receipt#1'
       });
