@@ -1,7 +1,16 @@
 import React from "react";
 import "./Ordersummary.css";
-import { Link } from "react-router-dom";
-function ordersummary({ itemToShow, finalAmount }) {
+import { useNavigate } from "react-router-dom";
+
+
+function OrderSummary({ itemToShow, finalAmount }) {
+
+  const navigate = useNavigate();
+
+  const handleProceedToPayment = () => {
+    navigate('/Paymentuser', { state: { finalAmount } });
+  };
+
   return (
     <div className="summary-container">
       <div className="summary">
@@ -17,12 +26,12 @@ function ordersummary({ itemToShow, finalAmount }) {
           <h3 className="total-heading">Order Total</h3>
           <span className="final-amount">₹ {finalAmount}</span>
         </div>
-        <Link to="/Paymentuser">
-          <button className="proceed-to">Proceed to payment</button>
-        </Link>
+        <button className="proceed-to" onClick={handleProceedToPayment}>
+          Proceed to payment
+        </button>
       </div>
     </div>
   );
 }
 
-export default ordersummary;
+export default OrderSummary;

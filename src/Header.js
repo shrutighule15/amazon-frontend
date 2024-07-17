@@ -19,49 +19,49 @@ function Header() {
 
   return (
     <div className='header'>
-      <Link to = '/'>
-      <img className='logo' src='https://pngimg.com/uploads/amazon/amazon_PNG11.png' alt='Amazon logo' />
+      <Link to='/'>
+        <img className='logo' src='https://pngimg.com/uploads/amazon/amazon_PNG11.png' alt='Amazon logo' />
       </Link>
-    
-  
-    <div className='search-box'>
-      <input className='search-in' type='text' placeholder='Search' />
-      <SearchIcon className='search-icon' />
-    </div>
-    <Link to='/Login'>
-  <div className='header-nav'>
-    <span className='header-nav-one'>
-    Hello, {user ? getFirstName(user.name) : 'Guest'}
 
-    </span>
-    <span className='header-nav-two'>
-    {user ? 'Welcome' : 'Sign In'}
-    </span>
-  </div>
-</Link>
- <div className='header-nav'>
-        <span className='header-nav-one'>
+
+      <div className='search-box'>
+        <input className='search-in' type='text' placeholder='Search' />
+        <SearchIcon className='search-icon' />
+      </div>
+      <Link to='/Login'>
+        <div className='header-nav'>
+          <span className='header-nav-one'>
+            Hello, {user ? getFirstName(user.name) : 'Guest'}
+
+          </span>
+          <span className='header-nav-two'>
+            {user ? 'Welcome' : 'Sign In'}
+          </span>
+        </div>
+      </Link>
+      <div className='header-nav'>
+        <span className='header-nav-two'>
           Returns
         </span>
         <span className='header-nav-two'>
-         & Orders
+          & Orders
         </span>
- </div>
- <div className='header-nav-cart'>
+      </div>
+      <div className='header-nav-cart'>
         <span className='header-nav-one'>
-        {cart?.length}
+          {cart?.length}
         </span>
 
         <Link to='/Shoppingcart'>
-<div className='shoping-cart'>
-<ShoppingCartIcon/>
-<span className='header-nav-two'>Cart</span>
-</div>
-</Link>
- </div>
+          <div className='shoping-cart'>
+            <ShoppingCartIcon />
+            <span className='header-nav-two'>Cart</span>
+          </div>
+        </Link>
+      </div>
     </div>
 
-   
+
   )
 }
 
