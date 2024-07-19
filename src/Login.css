@@ -67,6 +67,11 @@ max-width: 348px;
    margin-top: 5px;
    cursor: pointer;
 }
+
+.continue:hover{
+    background-color: #ffc107;
+ }
+ 
 .terms-login{
     font-size: 12px;
     margin-top: 14px;

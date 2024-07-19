@@ -1,28 +1,34 @@
 import React from "react";
 import axios from "axios";
-
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from "react-router-dom";
+import { useStateValue } from "./StateProvider"; // Corrected import path
+import Myorder from "./Myorder";
 
 function Paymentuser() {
-
   const location = useLocation();
   const navigate = useNavigate();
   const { finalAmount } = location.state || {};
+  const [{ cart, user }] = useStateValue(); // Correcting the hook usage
 
   if (!finalAmount) {
     // Navigate back to checkout if finalAmount is not available
-    navigate('/checkout');
+    navigate("/checkout");
     return null; // Prevent rendering the rest of the component
   }
 
   const handlePayment = async () => {
+    // Log the finalAmount in rupees
+    console.log("Final Amount in Rupees:", finalAmount);
     try {
       const orderUrl = "http://localhost:8000/api/payment/order";
       const { data } = await axios.post(orderUrl, {
-        amount: finalAmount * 100, // Amount in rupees (replace with dynamic amount)
-        currency: 'INR',
-        receipt: 'receipt#1'
+        amount: finalAmount * 1,
+        currency: "INR",
+        receipt: "receipt#1",
       });
+
+      // Log the response from the backend
+      console.log("Razorpay API Response:", data);
 
       const options = {
         key: "rzp_test_VKPcc2S3lu6ehh", // Replace with your Razorpay test key
@@ -31,15 +37,32 @@ function Paymentuser() {
         name: "Amazon Clone",
         description: "Test Transaction",
         order_id: data.id,
-        handler: function (response) {
+        handler: async function (response) {
           alert(`Payment ID: ${response.razorpay_payment_id}`);
           alert(`Order ID: ${response.razorpay_order_id}`);
-          // alert(`Signature: ${response.razorpay_signature}`);
-          // Handle success or other logic here
+
+          // Save purchase details to MongoDB
+          try {
+            const savePurchaseUrl = "http://localhost:8000/api/purchases/save";
+            await axios.post(savePurchaseUrl, {
+              userId: user._id, // Replace with the correct user ID from your state
+              items: cart.map((item) => ({
+                productId: item.id,
+                quantity: item.quantity,
+                price: item.price,
+              })),
+              totalAmount: finalAmount,
+            });
+            // Navigate to a success page
+            navigate("/Myorder");
+          } catch (error) {
+            console.error("Error saving purchase details:", error);
+            // Handle error gracefully (e.g., show a message to the user)
+          }
         },
         prefill: {
-          name: "Shruti",
-          email: "shruti15@gmail.com",
+          name: user?.name || "Shruti", // Replace with user name
+          email: user?.email || "shruti15@gmail.com", // Replace with user email
           contact: "9999999999",
         },
         notes: {
@@ -57,12 +80,6 @@ function Paymentuser() {
       // Handle error gracefully (e.g., show a message to the user)
     }
   };
-
-  return (
-    <div>
-      <button onClick={handlePayment}>Pay now</button>
-    </div>
-  );
 }
 
 export default Paymentuser;

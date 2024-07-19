@@ -1,6 +1,6 @@
 export const initialState = {
-  cart: [],
-  user: null,
+  cart: JSON.parse(localStorage.getItem("cart")) || [],
+  user: JSON.parse(localStorage.getItem("user")) || null,
   selectedItems: [],
 };
 
@@ -25,6 +25,7 @@ const reducer = (state = initialState, action) => {
         // Item does not exist in cart, add it with quantity 1
         newCart = [...state.cart, { ...action.item, quantity: 1 }];
       }
+      localStorage.setItem("cart", JSON.stringify(newCart)); // Save to localStorage
 
       return {
         ...state,
@@ -49,15 +50,39 @@ const reducer = (state = initialState, action) => {
           `Cant remove product (id: ${action.id}) as it's not in cart!`
         );
       }
+      localStorage.setItem("cart", JSON.stringify(newCart)); // Save to localStorage
+
       return {
         ...state,
         cart: newCart,
       };
     }
     case "SET_USER": {
+      localStorage.setItem("user", JSON.stringify(action.user)); // Save to localStorage
       return {
         ...state,
         user: action.user,
+      };
+    }
+    case "CLEAR_USER": {
+      localStorage.removeItem("user"); // Clear user from localStorage
+      return {
+        ...state,
+        user: null,
+      };
+    }
+    case "CLEAR_CART": {
+      localStorage.removeItem("cart");
+      return {
+        ...state,
+        cart: [],
+      };
+    }
+    case "SET_CART": {
+      localStorage.setItem("cart", JSON.stringify(action.cart));
+      return {
+        ...state,
+        cart: action.cart,
       };
     }
     default:

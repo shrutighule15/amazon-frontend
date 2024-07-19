@@ -15,14 +15,22 @@ function Ordersummary({
   const handlePayment = async () => {
     const { name, address, contactNumber } = userContact;
 
+    // Check if user is authenticated
     if (!isAuthenticated) {
       alert("Please sign in to proceed with payment");
-      navigate("/login"); // Redirect to login page or handle as needed
+      navigate("/login");
       return;
     }
 
-    if (!name || !address || !contactNumber) {
-      alert("Enter contact details to proceed with payment");
+    // // Check if contact information is filled
+    // if (!name || !address || !contactNumber) {
+    //   alert("Please enter contact details to proceed with payment");
+    //   return;
+    // }
+
+    // Check if there are items to checkout
+    if (itemToShow.length === 0) {
+      alert("Your cart is empty. Please add items to proceed.");
       return;
     }
 
@@ -93,10 +101,6 @@ function Ordersummary({
             Proceed to payment
           </button>
         </div>
-
-        <button className="proceed-to" onClick={handleProceedToPayment}>
-          Proceed to payment
-        </button>
       </div>
     </div>
   );
