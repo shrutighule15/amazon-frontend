@@ -26,6 +26,7 @@ function Login() {
         user: response.data,
       });
 
+      localStorage.setItem("user", JSON.stringify(response.data));
       navigate("/");
     } catch (err) {
       console.error("Login failed:", err);
