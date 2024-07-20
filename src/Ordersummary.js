@@ -2,6 +2,8 @@ import React from "react"; // Ensure import statements are at the top
 import "./Ordersummary.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Address from "./Address.js";
+import myorder from "./Myorder.js";
 
 // Combined into a single Ordersummary component
 function Ordersummary({
@@ -22,11 +24,11 @@ function Ordersummary({
       return;
     }
 
-    // // Check if contact information is filled
-    // if (!name || !address || !contactNumber) {
-    //   alert("Please enter contact details to proceed with payment");
-    //   return;
-    // }
+    // Check if contact information is filled
+    if (!name || !address || !contactNumber) {
+      alert("Please enter complete contact details to proceed with payment");
+      return;
+    }
 
     // Check if there are items to checkout
     if (itemToShow.length === 0) {
@@ -49,11 +51,27 @@ function Ordersummary({
         name: "Amazon Clone",
         description: "Test Transaction",
         order_id: data.id,
-        handler: function (response) {
+        handler: async function (response) {
           alert(`Payment ID: ${response.razorpay_payment_id}`);
           alert(`Order ID: ${response.razorpay_order_id}`);
           // Handle success or other logic here
+
+          // Save purchase details after successful payment
+          try {
+            await axios.post("http://localhost:8000/api/purchases/myorder", {
+              userId: "exampleUserId", // Replace with actual userId
+              items: itemToShow.map((item) => ({
+                productId: item.id,
+                price: item.price,
+              })),
+              totalAmount: finalAmount,
+            });
+            navigate("/myorder");
+          } catch (error) {
+            console.error("Error saving purchase:", error);
+          }
         },
+
         prefill: {
           name: "Shruti",
           email: "shruti15@gmail.com",

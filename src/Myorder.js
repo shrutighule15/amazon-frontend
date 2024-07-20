@@ -9,9 +9,8 @@ function Myorder() {
     // Fetch order details from backend or local storage
     const fetchOrderDetails = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:8000/api/purchases/latest"
-        );
+        const userId = ""; // Replace with dynamic user ID
+        const response = await axios.get("http://localhost:8000/api/purchases");
         setOrderDetails(response.data);
       } catch (error) {
         console.error("Error fetching order details:", error);

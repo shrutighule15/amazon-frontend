@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./Address.css";
 
-function Address({ userContact, isAuthenticated }) {
+function Address({ userContact, onUpdate }) {
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [contactNumber, setContactNumber] = useState("");
   const [editing, setEditing] = useState(false); // State to track if editing mode is active
 
   useEffect(() => {
-    console.log("User Contact Prop Received:", userContact); // Debug log
     setName(userContact.name || "");
     setAddress(userContact.address || "");
     setContactNumber(userContact.contactNumber || "");
@@ -17,16 +16,19 @@ function Address({ userContact, isAuthenticated }) {
   // Function to handle name change
   const handleNameChange = (event) => {
     setName(event.target.value);
+    onUpdate({ ...userContact, name: event.target.value });
   };
 
   // Function to handle address change
   const handleAddressChange = (event) => {
     setAddress(event.target.value);
+    onUpdate({ ...userContact, address: event.target.value });
   };
 
   // Function to handle contact number change
   const handleContactNumberChange = (event) => {
     setContactNumber(event.target.value);
+    onUpdate({ ...userContact, contactNumber: event.target.value });
   };
 
   // Function to toggle editing mode

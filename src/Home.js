@@ -31,7 +31,7 @@ function Home() {
 
         <div className="home-row">
           <Product
-            id={1}
+            id={"669bf6112c410460c4ce8294"}
             image={
               "https://m.media-amazon.com/images/I/91nIFrmIsUL._AC_SY879_.jpg"
             }
@@ -41,7 +41,7 @@ function Home() {
           />
 
           <Product
-            id={2}
+            id={"669bf6d02c410460c4d070d1"}
             image={
               "https://m.media-amazon.com/images/I/71re-nssU7L._AC_SY695_.jpg"
             }
