@@ -9,7 +9,7 @@ function Myorder() {
     // Fetch order details from backend or local storage
     const fetchOrderDetails = async () => {
       try {
-        const userId = ""; // Replace with dynamic user ID
+        const userId = "66862893d1ae7e933c7bf59e"; // Replace with dynamic user ID
         const response = await axios.get("http://localhost:8000/api/purchases");
         setOrderDetails(response.data);
       } catch (error) {
