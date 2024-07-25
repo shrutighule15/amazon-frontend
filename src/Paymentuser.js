@@ -43,9 +43,17 @@ function Paymentuser() {
 
           // Save purchase details to MongoDB
           try {
+            let userDetails = localStorage.getItem("user");
+            if (!userDetails) {
+              alert("Please sign in to proceed with payment");
+              navigate("/login");
+              return;
+            }
+            userDetails = JSON.parse(userDetails)
+            const userId = userDetails.user_id;
             const savePurchaseUrl = "http://localhost:8000/api/purchases/save";
             const purchasePayload = {
-              userId: user?._id, // Replace with the correct user ID from your state
+              userId: userId, // Replace with the correct user ID from your state
               items: cart.map((item) => ({
                 productId: item.id,
                 quantity: item.quantity,
@@ -64,7 +72,6 @@ function Paymentuser() {
               savePurchaseUrl,
               purchasePayload
             );
-            console.log("Purchase saved:", purchaseResponse.data);
             // Navigate to a success page
             navigate("/Myorder");
           } catch (error) {

@@ -43,8 +43,8 @@ function Home() {
           <div key={index} className="home-row">
             {chunk.map((product) => (
               <Product
-                key={product.id}
-                id={product.id}
+                key={product._id}
+                id={product._id}
                 image={product.image}
                 title={product.title}
                 price={product.price}
