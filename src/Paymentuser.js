@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useStateValue } from "./StateProvider"; // Corrected import path
+import { useStateValue } from "./StateProvider";
 import Myorder from "./Myorder";
 
 function Paymentuser() {
@@ -22,7 +22,7 @@ function Paymentuser() {
     try {
       const orderUrl = "http://localhost:8000/api/payment/order";
       const { data } = await axios.post(orderUrl, {
-        amount: finalAmount * 1,
+        amount: finalAmount * 100,
         currency: "INR",
         receipt: "receipt#1",
       });
@@ -44,25 +44,38 @@ function Paymentuser() {
           // Save purchase details to MongoDB
           try {
             const savePurchaseUrl = "http://localhost:8000/api/purchases/save";
-            await axios.post(savePurchaseUrl, {
-              userId: user._id, // Replace with the correct user ID from your state
+            const purchasePayload = {
+              userId: user?._id, // Replace with the correct user ID from your state
               items: cart.map((item) => ({
                 productId: item.id,
                 quantity: item.quantity,
                 price: item.price,
               })),
               totalAmount: finalAmount,
-            });
+              purchaseDate: new Date(),
+            };
+
+            console.log(
+              "Payload to be sent to savePurchaseUrl:",
+              purchasePayload
+            );
+
+            const purchaseResponse = await axios.post(
+              savePurchaseUrl,
+              purchasePayload
+            );
+            console.log("Purchase saved:", purchaseResponse.data);
             // Navigate to a success page
             navigate("/Myorder");
           } catch (error) {
             console.error("Error saving purchase details:", error);
+            alert("Error saving purchase details");
             // Handle error gracefully (e.g., show a message to the user)
           }
         },
         prefill: {
           name: user?.name || "Shruti", // Replace with user name
-          email: user?.email || "shruti15@gmail.com", // Replace with user email
+          email: user?.email || "shrughule15@gmail.com", // Replace with user email
           contact: "9999999999",
         },
         notes: {
@@ -77,9 +90,16 @@ function Paymentuser() {
       rzp1.open();
     } catch (error) {
       console.error("Error in payment:", error);
+      alert("Payment failed");
       // Handle error gracefully (e.g., show a message to the user)
     }
   };
+  return (
+    <div>
+      <h1>Complete Your Payment</h1>
+      <button onClick={handlePayment}>Pay Now</button>
+    </div>
+  );
 }
 
 export default Paymentuser;
