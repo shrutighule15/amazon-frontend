@@ -3,7 +3,7 @@ import "./Ordersummary.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Address from "./Address.js";
-import myorder from "./Myorder.js";
+import Myorder from "./Myorder.js";
 
 // Combined into a single Ordersummary component
 function Ordersummary({
@@ -115,7 +115,7 @@ function Ordersummary({
         </div>
 
         <div>
-          <button className="proceed-to" onClick={handlePayment}>
+          <button className="proceed-to" onClick={handleProceedToPayment}>
             Proceed to payment
           </button>
         </div>

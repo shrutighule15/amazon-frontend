@@ -53,7 +53,7 @@ function Home() {
           />
 
           <Product
-            id={3}
+            id={"669bf6e22c410460c4d09ebe"}
             image={
               "https://m.media-amazon.com/images/I/61HTE-em06L._AC_SL1500_.jpg"
             }
@@ -63,7 +63,7 @@ function Home() {
           />
 
           <Product
-            id={4}
+            id={"669bf7022c410460c4d0f203"}
             image={
               "https://m.media-amazon.com/images/I/516dIgu0ZbL._AC_SL1500_.jpg"
             }
@@ -73,7 +73,7 @@ function Home() {
           />
 
           <Product
-            id={5}
+            id={"669bf7132c410460c4d11f91"}
             image={
               "https://m.media-amazon.com/images/I/61YNpJ7S7US._AC_SL1500_.jpg"
             }
@@ -83,7 +83,7 @@ function Home() {
           />
 
           <Product
-            id={6}
+            id={"669bf7232c410460c4d14ac1"}
             image={
               "https://m.media-amazon.com/images/I/81Xwf3nalUL._AC_SL1500_.jpg"
             }
@@ -95,7 +95,7 @@ function Home() {
 
         <div className="home-row">
           <Product
-            id={7}
+            id={"669bf7392c410460c4d183aa"}
             image={
               "https://m.media-amazon.com/images/I/71NXowebfKL._AC_SL1500_.jpg"
             }
@@ -105,7 +105,7 @@ function Home() {
           />
 
           <Product
-            id={8}
+            id={"669bf7502c410460c4d1c048"}
             image={
               "https://m.media-amazon.com/images/I/61anBuiHUhL._AC_SX679_.jpg"
             }
@@ -115,7 +115,7 @@ function Home() {
           />
 
           <Product
-            id={9}
+            id={"669bf7662c410460c4d1f7f0"}
             image={
               "https://m.media-amazon.com/images/I/71m7N37l2EL._SL1500_.jpg"
             }
@@ -125,7 +125,7 @@ function Home() {
           />
 
           <Product
-            id={10}
+            id={"669bf77a2c410460c4d22d9c"}
             image={
               "https://m.media-amazon.com/images/I/714KPddSBCL._AC_SL1500_.jpg"
             }
@@ -135,7 +135,7 @@ function Home() {
           />
 
           <Product
-            id={11}
+            id={"669bf78c2c410460c4d25cc8"}
             image={
               "https://m.media-amazon.com/images/I/71SxZJGetBL._AC_SY695_.jpg"
             }
@@ -145,7 +145,7 @@ function Home() {
           />
 
           <Product
-            id={12}
+            id={"669bf7a22c410460c4d2940c"}
             image={
               "https://m.media-amazon.com/images/I/91DrwRxajpL._AC_SL1500_.jpg"
             }
@@ -157,7 +157,7 @@ function Home() {
 
         <div className="home-row">
           <Product
-            id={13}
+            id={"669bf7b92c410460c4d2d256"}
             image={
               "https://m.media-amazon.com/images/I/61E1qihZ55L._AC_SL1500_.jpg"
             }
@@ -167,7 +167,7 @@ function Home() {
           />
 
           <Product
-            id={14}
+            id={"669bf7cd2c410460c4d30663"}
             image={
               "https://m.media-amazon.com/images/I/71jjuTLpCpL._AC_SL1500_.jpg"
             }
@@ -177,7 +177,7 @@ function Home() {
           />
 
           <Product
-            id={15}
+            id={"669bf7e22c410460c4d33cfc"}
             image={
               "https://m.media-amazon.com/images/I/71F+3Yjn6xL._SL1500_.jpg"
             }
@@ -187,7 +187,7 @@ function Home() {
           />
 
           <Product
-            id={16}
+            id={"669bf7f62c410460c4d37099"}
             image={
               "https://m.media-amazon.com/images/I/61h8Dgf8NxL._AC_SL1500_.jpg"
             }
@@ -197,7 +197,7 @@ function Home() {
           />
 
           <Product
-            id={17}
+            id={"669bf8072c410460c4d39cf2"}
             image={
               "https://m.media-amazon.com/images/I/71VnjUD2tSL._AC_SX679_.jpg"
             }
@@ -207,7 +207,7 @@ function Home() {
           />
 
           <Product
-            id={18}
+            id={"669bf8452c410460c4d43f76"}
             image={
               "https://m.media-amazon.com/images/I/71bhqVTk2tL._SL1500_.jpg"
             }

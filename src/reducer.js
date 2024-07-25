@@ -58,6 +58,7 @@ const reducer = (state = initialState, action) => {
       };
     }
     case "SET_USER": {
+      console.log("Action payload:", action.user);
       localStorage.setItem("user", JSON.stringify(action.user)); // Save to localStorage
       return {
         ...state,

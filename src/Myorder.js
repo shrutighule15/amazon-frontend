@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from "react";
 import "./Myorder.css";
 import axios from "axios";
+import { useStateValue } from "./StateProvider";
 
 function Myorder() {
   const [orderDetails, setOrderDetails] = useState(null);
+  const [{ user }] = useStateValue(); // Get user from state
 
   useEffect(() => {
     // Fetch order details from backend or local storage
     const fetchOrderDetails = async () => {
       try {
-        const userId = ""; // Replace with dynamic user ID
-        const response = await axios.get("http://localhost:8000/api/purchases");
+        const userId = "user._id"; // Replace with dynamic user ID
+        const response = await axios.get(
+          "http://localhost:8000/api/purchases/${userId}"
+        );
         setOrderDetails(response.data);
       } catch (error) {
         console.error("Error fetching order details:", error);
@@ -18,7 +22,7 @@ function Myorder() {
     };
 
     fetchOrderDetails();
-  }, []);
+  }, [user]);
 
   return (
     <div className="my-container">
@@ -37,12 +41,14 @@ function Myorder() {
       </div>
       <hr className="check-line" />
 
-      {orderDetails ? (
-        <div>
-          <h3>Order ID: {orderDetails.orderId}</h3>
-          <p>Total Amount: {orderDetails.totalAmount}</p>
-          {/* Add more details as required */}
-        </div>
+      {orderDetails.length > 0 ? (
+        orderDetails.map((order, index) => (
+          <div key={index}>
+            <h3>Order ID: {order._id}</h3>
+            <p>Total Amount: {order.totalAmount}</p>
+            {/* Add more details as required */}
+          </div>
+        ))
       ) : (
         <p>Loading...</p>
       )}
