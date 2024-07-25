@@ -14,10 +14,10 @@ function Subtotal({ selectedItems }) {
     if (selectedItems.length > 0) {
       const itemsToCheckout = cart.filter((item) =>
         selectedItems.includes(item.id)
-      );
+      ).map((item) => item.id);
       dispatch({
         type: "SET_SELECTED_ITEMS",
-        items: selectedItems,
+        items: itemsToCheckout,
       });
       navigate("/checkout");
     } else {

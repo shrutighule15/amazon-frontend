@@ -95,6 +95,19 @@ function Ordersummary({
 
   // Ensure only one handleProceedToPayment function
   const handleProceedToPayment = () => {
+    const userData = localStorage.getItem("user");
+    if (userData === null) {
+      alert("Please sign in to proceed with payment");
+      navigate("/login");
+      return;
+    }
+
+    // Check if contact information is filled
+    if (!userContact.name || !userContact.address || !userContact.contactNumber) {
+      alert("Please enter complete contact details to proceed with payment");
+      return;
+    }
+
     navigate("/Paymentuser", { state: { finalAmount } });
   };
 

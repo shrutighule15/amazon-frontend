@@ -1,19 +1,26 @@
 import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./Myorder.css";
 import axios from "axios";
 import { useStateValue } from "./StateProvider";
 
 function Myorder() {
-  const [orderDetails, setOrderDetails] = useState(null);
+  const [orderDetails, setOrderDetails] = useState([]);
   const [{ user }] = useStateValue(); // Get user from state
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Fetch order details from backend or local storage
     const fetchOrderDetails = async () => {
+      if (!user) {
+        alert("Please sign in to check your order details");
+        navigate("/login");
+        return;
+      }
       try {
-        const userId = "user._id"; // Replace with dynamic user ID
+        const userId = user.user_id; // Replace with dynamic user ID
         const response = await axios.get(
-          "http://localhost:8000/api/purchases/${userId}"
+          `http://localhost:8000/api/purchases/${userId}`
         );
         setOrderDetails(response.data);
       } catch (error) {
