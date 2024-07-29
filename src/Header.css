@@ -1,9 +1,12 @@
 .header {
-    background-color: #0F1111;
+    background-color: #0F1111; /* Your header color */
     height: 70px;
     align-items: center;
     position: sticky;
     display: flex;
+    width: 100%; /* Ensure it takes up full width */
+    box-sizing: border-box; /* Include padding and borders in width */
+    z-index: 10; /* Make sure header is on top */
 }
 
 .logo {
@@ -26,7 +29,6 @@
     flex: 1;
     margin-left: 150px;
     margin-right: 300px;
-
 }
 
 .search-icon {
@@ -60,7 +62,6 @@
     margin-left: 15px;
 }
 
-
 .header-nav-two {
     margin: 0 auto;
 }
@@ -75,7 +76,6 @@
     border: 2px solid transparent; /* Initially transparent border */
 }
 
-
 .header-nav-cart {
     color: white;
     flex-direction: column;
@@ -84,14 +84,83 @@
     font-weight: bold;
     border: 2px solid transparent; /* Initially transparent border */
 }
+
 .header-nav:hover,
 .header-nav-cart:hover {
   border-color: white; /* Change border color to white on hover */
 }
+
 .header-option {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     color: white;
     text-decoration: none;
+}
+
+/* Responsive Adjustments with Media Queries */
+/* For tablets and larger phones */
+@media (max-width: 768px) {
+    .header {
+        height: 60px; /* Decrease header height */
+    }
+
+    .logo {
+        height: 35px; /* Adjust logo size */
+        margin-top: 15px;
+        margin-left: 20px;
+    }
+
+    .search-box {
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+
+    .search-icon {
+        height: 12px; /* Adjust search icon size */
+        padding: 3px;
+    }
+
+    .shoping-cart, .header-nav-cart {
+        margin-left: 5px;
+        margin-right: 2px;
+    }
+
+    .header-nav, .header-nav-cart {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+}
+
+/* For smaller phones */
+@media (max-width: 480px) {
+    .header {
+        height: 50px; /* Further decrease header height */
+    }
+
+    .logo {
+        height: 30px; /* Adjust logo size */
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+
+    .search-box {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .search-icon {
+        height: 10px; /* Adjust search icon size */
+        padding: 2px;
+    }
+
+    .shoping-cart, .header-nav-cart {
+        margin-left: 2px;
+        margin-right: 1px;
+    }
+
+    .header-nav, .header-nav-cart {
+        margin-left: 2px;
+        margin-right: 2px;
+    }
 }

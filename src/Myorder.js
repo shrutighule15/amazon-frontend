@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import "./Myorder.css";
 import axios from "axios";
 import { useStateValue } from "./StateProvider";
+import "./App.css";
 
 function Myorder() {
   const [orderDetails, setOrderDetails] = useState([]);
@@ -22,6 +23,7 @@ function Myorder() {
         const response = await axios.get(
           `http://localhost:8000/api/purchases/${userId}`
         );
+        console.log("Order Details:", response.data); // Debugging statement
         setOrderDetails(response.data);
       } catch (error) {
         console.error("Error fetching order details:", error);
@@ -29,7 +31,7 @@ function Myorder() {
     };
 
     fetchOrderDetails();
-  }, [user]);
+  }, [user, navigate]);
 
   return (
     <div className="my-container">
@@ -45,20 +47,26 @@ function Myorder() {
           <h2>Your Orders</h2>
         </div>
         <hr className="check-line" />
+        {orderDetails.length > 0 ? (
+          orderDetails.map((order, index) => (
+            <div key={index} className="order-box">
+              <img
+                src={order.image}
+                alt={order.title}
+                className="order-image"
+              />
+              <div className="order-info">
+                <h2 className="order-title">{order.title}</h2>
+                <h1 className="order-id">Order ID: {order._id}</h1>
+                <p className="total">Total Amount: {order.totalAmount}</p>
+                {/* Add more details as required */}
+              </div>
+            </div>
+          ))
+        ) : (
+          <p>Loading...</p>
+        )}
       </div>
-      <hr className="check-line" />
-
-      {orderDetails.length > 0 ? (
-        orderDetails.map((order, index) => (
-          <div key={index}>
-            <h3>Order ID: {order._id}</h3>
-            <p>Total Amount: {order.totalAmount}</p>
-            {/* Add more details as required */}
-          </div>
-        ))
-      ) : (
-        <p>Loading...</p>
-      )}
     </div>
   );
 }

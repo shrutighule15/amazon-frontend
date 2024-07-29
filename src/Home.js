@@ -3,6 +3,7 @@ import "./Home.css";
 import Product from "./Product";
 import axios from "axios";
 import { useEffect } from "react";
+import "./App.css";
 
 const chunkArray = (array, chunkSize) => {
   const chunks = [];
@@ -53,8 +54,6 @@ function Home() {
             ))}
           </div>
         ))}
-
-
       </div>
     </div>
   );

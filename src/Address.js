@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Address.css";
+import "./App.css";
 
 function Address({ userContact, onUpdate }) {
   const [name, setName] = useState("");

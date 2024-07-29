@@ -5,6 +5,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link } from "react-router-dom";
 import { useStateValue } from "./StateProvider";
 import Myorder from "./Myorder";
+import "./App.css";
 
 function Header() {
   const [{ cart, user }, dispatch] = useStateValue();

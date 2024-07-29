@@ -4,6 +4,7 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Shoppingcart from "./Shoppingcart";
 import { StateProvider } from "./StateProvider";
 import reducer, { initialState } from "./reducer";
+import "./App.css";
 
 // Components
 import Header from "./Header.js";

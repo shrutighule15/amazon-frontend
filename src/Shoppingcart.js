@@ -4,6 +4,7 @@ import Subtotal from "./Subtotal.js";
 import CheckoutProduct from "./CheckoutProduct.js";
 import { useStateValue } from "./StateProvider.js";
 import { useNavigate } from "react-router-dom";
+import "./App.css";
 
 function Shoppingcart({ hideHeaderAndSubtotal }) {
   const [{ cart }, dispatch] = useStateValue();

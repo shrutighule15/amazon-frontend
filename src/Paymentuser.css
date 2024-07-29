@@ -1,0 +1,56 @@
+/* Container for heading and button */
+.payment-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically */
+    padding: 2rem; /* Padding around the container */
+    border: 1px solid #ddd; /* Light border around the container */
+    border-radius: 0.75rem; /* Rounded corners for the container */
+    background-color: #f9f9f9; /* Light background color for the container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for better depth */
+  }
+  
+  /* Heading Styles */
+  .payment-container h1 {
+    font-size: 2.5rem; /* Larger font size for prominence */
+    color: #4682b4; /* Secondary color for heading */
+    margin-bottom: 1.5rem; /* Spacing below the heading */
+    font-weight: bold; /* Bold text for emphasis */
+    text-align: center; /* Center align the heading */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for better visibility */
+  }
+  
+  /* Button Styles */
+  .payment-container button {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    background-color: #ffd700; /* Match the color from .proceed-to */
+    border-radius: 8px;
+    height: 40px;
+    width: 10%;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold; /* Bold text for better readability */
+    color: #000; /* Text color to ensure contrast */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
+    outline: none; /* Remove default focus outline */
+  }
+  
+  .payment-container button:hover {
+    background-color: #ffc107; /* Hover color matching .proceed-to */
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+  }
+  
+  .payment-container button:active {
+    background-color: #e0a800; /* Even darker shade on click */
+    transform: scale(0.98); /* Slightly shrink button on click */
+  }
+  
+  .payment-container button:focus {
+    box-shadow: 0 0 0 3px rgba(255, 155, 100, 0.5); /* Add focus ring */
+  }
+  

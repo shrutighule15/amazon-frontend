@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Address from "./Address.js";
 import Myorder from "./Myorder.js";
+import "./App.css";
 
 // Combined into a single Ordersummary component
 function Ordersummary({
@@ -103,7 +104,11 @@ function Ordersummary({
     }
 
     // Check if contact information is filled
-    if (!userContact.name || !userContact.address || !userContact.contactNumber) {
+    if (
+      !userContact.name ||
+      !userContact.address ||
+      !userContact.contactNumber
+    ) {
       alert("Please enter complete contact details to proceed with payment");
       return;
     }

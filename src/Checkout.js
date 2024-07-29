@@ -3,6 +3,7 @@ import Ordersummary from "./Ordersummary.js";
 import Address from "./Address.js";
 import "./Checkout.css";
 import { useStateValue } from "./StateProvider.js";
+import "./App.css";
 
 function Checkout({ hideHeaderAndSubtotal }) {
   const [{ selectedItems, cart, user }] = useStateValue();

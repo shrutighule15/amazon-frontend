@@ -1,46 +1,69 @@
 .my-container {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    width: 100%;
-  }
-  
-  .my-header {
-    display: flex;
-    justify-content: center;
-    padding-bottom: 20px;
-  }
-  
-  .my-logo {
-    width: 150px;
-  }
-  
-  .my-content {
-    background-color: white;
-    width: 100%;
-    max-width: 75%;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-    padding: 20px;
-    margin: 0 auto;
-  }
-  
-  
-  .check-heading {
-    padding-bottom: 10px;
-    font-family: Arial, Helvetica, sans-serif;
-    width: 100%;
-  }
-  
-  .check-line {
-    border: none;
-    height: 0.5px;
-    background-color: lightgray;
-    margin-top: 25px;
-  }
-  
-  /* Ensure boxes are displayed correctly */
-  .my-content, .check-heading-container {
-    margin-bottom: 20px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 100%;
+}
+
+.my-header {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.my-logo {
+  width: 150px;
+}
+
+.my-content {
+  background-color: white;
+  width: 100%;
+  max-width: 75%;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.check-heading {
+  padding-bottom: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+}
+
+.check-line {
+  border: none;
+  height: 0.5px;
+  background-color: lightgray;
+  margin-top: 25px;
+}
+
+.order-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.order-info {
+  text-align: left;
+}
+
+
+.order-id {
+  font-size: 1.2em;
+  margin: 0 0 10px 0;
+  color: black;
+}
+
+.total {
+  font-size: 1.1em;
+  margin: 0 0 10px 0;
+  color: black;
+}

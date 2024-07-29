@@ -5,6 +5,7 @@ import { useStateValue } from "./StateProvider";
 import { getCartTotal } from "./reducer";
 import { Link, useNavigate } from "react-router-dom";
 import Myorder from "./Myorder";
+import "./App.css";
 
 function Subtotal({ selectedItems }) {
   const [{ cart }, dispatch] = useStateValue();
@@ -12,9 +13,9 @@ function Subtotal({ selectedItems }) {
 
   const proceedToCheckout = () => {
     if (selectedItems.length > 0) {
-      const itemsToCheckout = cart.filter((item) =>
-        selectedItems.includes(item.id)
-      ).map((item) => item.id);
+      const itemsToCheckout = cart
+        .filter((item) => selectedItems.includes(item.id))
+        .map((item) => item.id);
       dispatch({
         type: "SET_SELECTED_ITEMS",
         items: itemsToCheckout,

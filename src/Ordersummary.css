@@ -1,3 +1,4 @@
+/* Base Styles */
 .summary-container {
     position: absolute;
     bottom: 20px;
@@ -76,4 +77,51 @@
     font-weight: bold;
     font-size: 18px;
     color: #b12704;
+}
+
+/* Responsive Styles */
+/* For tablets and larger phones */
+@media (max-width: 768px) {
+    .summary-container {
+        width: 250px; /* Adjust width for smaller screens */
+        bottom: 15px; /* Adjust bottom position */
+        right: 15px; /* Adjust right position */
+    }
+
+    .order-heading {
+        font-size: 20px;
+        padding-left: 40px;
+    }
+
+    .proceed-to {
+        font-size: 14px;
+        height: 35px;
+    }
+
+    .order-total, .item, .total-heading, .final-amount {
+        font-size: 16px;
+    }
+}
+
+/* For smaller phones */
+@media (max-width: 480px) {
+    .summary-container {
+        width: 200px; /* Adjust width for smaller screens */
+        bottom: 10px; /* Adjust bottom position */
+        right: 10px; /* Adjust right position */
+    }
+
+    .order-heading {
+        font-size: 18px;
+        padding-left: 30px;
+    }
+
+    .proceed-to {
+        font-size: 12px;
+        height: 30px;
+    }
+
+    .order-total, .item, .total-heading, .final-amount {
+        font-size: 14px;
+    }
 }
